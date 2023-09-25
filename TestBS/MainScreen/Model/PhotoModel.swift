@@ -1,14 +1,11 @@
 //
-//  Model.swift
+//  AppDelegate.swift
 //  TestBS
 //
-//  Created by Никитин Артем on 24.09.23.
+//  Created by Никитин Артем on 25.09.23.
 //
 
-
-
 import Foundation
-
 
 struct PhotoTypeDtoOut: Decodable {
     let content: [PhotoDtoOut]

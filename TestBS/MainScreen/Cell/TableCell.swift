@@ -1,3 +1,10 @@
+//
+//  AppDelegate.swift
+//  TestBS
+//
+//  Created by Никитин Артем on 25.09.23.
+//
+
 import UIKit
 
 final class TableCell: UITableViewCell {

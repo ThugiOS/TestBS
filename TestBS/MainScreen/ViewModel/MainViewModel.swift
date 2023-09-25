@@ -2,7 +2,7 @@
 //  MainViewModel.swift
 //  TestBS
 //
-//  Created by Никитин Артем on 24.09.23.
+//  Created by Никитин Артем on 25.09.23.
 //
 
 import Foundation
@@ -73,23 +73,6 @@ final class MainViewModel: MainViewModelProtocol {
         isPagination = false
     }
 
-    
-//    func getPhotos(for page: Int) async {
-//        isPagOn = true
-//        if maxPages == nil || page < maxPages ?? 0 {
-//            if let newPage: PhotoTypeDtoOut = await networkService.fetchData(path: path, page: String(page)) {
-//                photos.append(contentsOf: newPage.content)
-//                
-//                DispatchQueue.main.async {
-//                    self.view?.reloadTableView()
-//                }
-//                self.maxPages = newPage.totalPages
-//                self.page += 1
-//            }
-//        }
-//        isPagOn = false
-//    }
-    
     func getImageData(url: String) async -> Data? {
         do {
             return try await networkService.getAllImage(url: url)

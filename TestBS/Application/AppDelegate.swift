@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TestBS
 //
-//  Created by Никитин Артем on 24.09.23.
+//  Created by Никитин Артем on 25.09.23.
 //
 
 import UIKit
@@ -30,7 +30,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 

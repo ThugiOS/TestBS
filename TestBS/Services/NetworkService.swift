@@ -2,7 +2,7 @@
 //  NetworkService.swift
 //  TestBS
 //
-//  Created by Никитин Артем on 24.09.23.
+//  Created by Никитин Артем on 25.09.23.
 //
 
 import Foundation
@@ -68,66 +68,3 @@ final class NetworkService {
         }
     }
 }
-
-
-
-//import Foundation
-//import Alamofire
-//
-//final class NetworkService {
-//    
-//    private func getUrlComponents(path: String, page: String) -> URLComponents {
-//         var urlComponents = URLComponents()
-//         urlComponents.scheme = "https"
-//         urlComponents.host = "junior.balinasoft.com"
-//         urlComponents.path = path
-//         urlComponents.queryItems = [.init(name: "page", value: page)]
-//         return urlComponents
-//     }
-//     
-//    private func uploadUrlComponents(path: String, id: Int) -> URLComponents {
-//         var urlComponents = URLComponents()
-//         urlComponents.scheme = "https"
-//         urlComponents.host = "junior.balinasoft.com"
-//         urlComponents.path = path
-//         urlComponents.queryItems = [.init(name: "id", value: String(id))]
-//         return urlComponents
-//      }
-//     
-//     enum Errors: Error {
-//         case unknownUrl
-//     }
-//    
-//    func fetchData(path: String, page: String) async -> PhotoTypeDtoOut? {
-//        let urlComponents = getUrlComponents(path: path, page: page)
-//        do {
-//            return try await AF.request(urlComponents).serializingDecodable(PhotoTypeDtoOut.self,
-//                                                                            decoder: JSONDecoder()).value
-//        } catch {
-//            return nil
-//        }
-//    }
-//    
-//    func getAllImage(url: String) async throws -> Data? {
-//        guard let url = URL(string: url) else {
-//            throw Errors.unknownUrl
-//        }
-//        let response = try await URLSession.shared.data(from: url)
-//        let data = response.0
-//        return data
-//    }
-//    
-//    func sendPhotoToServer(id: Int, path: String, parameters: [String: Any]) {
-//        AF.upload(multipartFormData: { multipartFormData in
-//            for (key, value) in parameters {
-//                if let data = value as? Data {
-//                    multipartFormData.append(data, withName: key, fileName: "photo.jpg", mimeType: "image/jpeg")
-//                } else if let string = value as? String {
-//                    multipartFormData.append(string.data(using: .utf8)!, withName: key)
-//                }
-//            }
-//        }, to: uploadUrlComponents(path: path, id: id), method: .post).responseDecodable(of: PhotoUploadDtoOut.self ) { result in
-//            debugPrint(result)
-//           }
-//        }
-//}
