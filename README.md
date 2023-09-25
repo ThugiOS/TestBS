@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-            <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/sendPhoto.gif" width="640">
+            <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/screen.png" width="640">
 </p>
 
 #### Contact with me
