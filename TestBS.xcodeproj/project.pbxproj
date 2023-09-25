@@ -17,6 +17,7 @@
 		272123F62AC0AF8C00A0DBBA /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272123F52AC0AF8C00A0DBBA /* TableCell.swift */; };
 		272123F82AC0AFAE00A0DBBA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272123F72AC0AFAE00A0DBBA /* MainViewModel.swift */; };
 		272D021E2AC0CE5A005CE172 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 272D021D2AC0CE5A005CE172 /* Alamofire */; };
+		274359582AC1E9710097C6C3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 274359572AC1E9710097C6C3 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272D021E2AC0CE5A005CE172 /* Alamofire in Frameworks */,
+				274359582AC1E9710097C6C3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +162,7 @@
 			name = TestBS;
 			packageProductDependencies = (
 				272D021D2AC0CE5A005CE172 /* Alamofire */,
+				274359572AC1E9710097C6C3 /* SnapKit */,
 			);
 			productName = TestBS;
 			productReference = 272123DA2AC0A43600A0DBBA /* TestBS.app */;
@@ -191,6 +194,7 @@
 			mainGroup = 272123D12AC0A43500A0DBBA;
 			packageReferences = (
 				272D021C2AC0CE5A005CE172 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				274359562AC1E9710097C6C3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 272123DB2AC0A43600A0DBBA /* Products */;
 			projectDirPath = "";
@@ -371,9 +375,11 @@
 				DEVELOPMENT_TEAM = 9YW4L3WZ5R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestBS/Supporting/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Мы используем камеру для съемки фотографий и видеозаписей, чтобы предоставить вам лучший опыт использования приложения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -400,9 +406,11 @@
 				DEVELOPMENT_TEAM = 9YW4L3WZ5R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestBS/Supporting/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Мы используем камеру для съемки фотографий и видеозаписей, чтобы предоставить вам лучший опыт использования приложения";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,6 +459,14 @@
 				minimumVersion = 5.8.0;
 			};
 		};
+		274359562AC1E9710097C6C3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -458,6 +474,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 272D021C2AC0CE5A005CE172 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		274359572AC1E9710097C6C3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 274359562AC1E9710097C6C3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

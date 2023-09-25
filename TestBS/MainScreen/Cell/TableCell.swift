@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SnapKit
 
 final class TableCell: UITableViewCell {
     
     static let identifier = "Cell"
 
-     let image: UIImageView = {
+    let image: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -19,7 +20,7 @@ final class TableCell: UITableViewCell {
         return imageView
     }()
     
-     let label: UILabel = {
+    let label: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
@@ -37,32 +38,30 @@ final class TableCell: UITableViewCell {
     }
     
     private func setupUI() {
+        contentView.addSubview(image)
+        contentView.addSubview(label)
         
-        self.contentView.addSubview(image)
-        self.contentView.addSubview(label)
-        
-        self.layer.borderWidth = 10
-        self.layer.borderColor = UIColor.systemBackground.cgColor
-        self.layer.cornerRadius = 30
-        self.clipsToBounds = true
+        layer.borderWidth = 10
+        layer.borderColor = UIColor.systemBackground.cgColor
+        layer.cornerRadius = 30
+        clipsToBounds = true
 
         setupConstraints()
     }
     
     private func setupConstraints() {
-        image.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
+        image.snp.makeConstraints { make in
+            make.top.equalTo(contentView)
+            make.bottom.equalTo(contentView)
+            make.leading.equalTo(contentView)
+            make.trailing.equalTo(contentView)
+            make.height.equalTo(380)
+        }
         
-        NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: contentView.topAnchor),
-            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            image.heightAnchor.constraint(equalToConstant: 380),
-            
-            label.centerXAnchor.constraint(equalTo: image.centerXAnchor),
-            label.bottomAnchor.constraint(equalTo: image.bottomAnchor, constant: -30)
-        ])
+        label.snp.makeConstraints { make in
+            make.centerX.equalTo(image)
+            make.bottom.equalTo(image).offset(-30)
+        }
     }
     
     override func prepareForReuse() {

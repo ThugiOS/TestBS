@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol MainViewControllerProtocol: AnyObject {
     func setController(_ controller: MainViewModelProtocol)
@@ -49,18 +50,16 @@ private extension MainViewController {
     }
     
     func setupUI() {
-        self.view.backgroundColor = .systemBackground
-        self.view.addSubview(tableView)
-        
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-         
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14)
-        ])
-    }
+            view.addSubview(tableView)
+            view.backgroundColor = .systemBackground
+            
+            tableView.snp.makeConstraints { make in
+                make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+                make.bottom.equalTo(view)
+                make.leading.equalTo(view).offset(14)
+                make.trailing.equalTo(view).offset(-14)
+            }
+        }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
