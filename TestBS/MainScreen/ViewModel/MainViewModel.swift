@@ -19,7 +19,7 @@ protocol MainViewModelProtocol {
 
 final class MainViewModel: MainViewModelProtocol {
     
-    private var userName = "Artem Nikitin"
+    private var userName = "Nikitin Artem Konstantinovich"
     
     private weak var view: MainViewControllerProtocol?
     private var networkService = NetworkService()

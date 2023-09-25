@@ -1,21 +1,25 @@
 <img src="https://img.shields.io/badge/Swift-UIKit-success">
 
 
-
-
 ---
-## Stack:
+
 ### Architecture
 - MVVM
 ### Frameworks
 - UIKit
+- Alamofire
 
-### Technologies
+НАТИВНОЕ приложение под iOS со следующим функционалом:
+- Один экран со списком (Элементы списка получены с сервера GET-запросом,
+добавлена пагинация)
+- Нажатие на любой элемент списка открывает камеру
+- Когда снимок сделан - отправляется POST-запрос на сервер с идентификатором
+нажатого элемента, ФИО разработчика и фото с камеры
 
 
 ---
 <p align="center">
-      <img src="https://github.com/ThugiOS/iCryptoPro/blob/main/media/list.gif" width="320"><img src="https://github.com/ThugiOS/iCryptoPro/blob/main/media/search.gif" width="320"><img src="https://github.com/ThugiOS/iCryptoPro/blob/main/media/goCoin.gif" width="320">
+      <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/scroll.gif" width="320"><img src="https://github.com/ThugiOS/TestBS/blob/main/Media/sendPhoto.gif" width="320">
 </p>
 
 #### Contact with me
