@@ -21,6 +21,7 @@
 ---
 <p align="center">
       <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/scrollShort.gif" width="320"> <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/sendPhoto.gif" width="320">
+            <img src="<img src="https://github.com/ThugiOS/TestBS/blob/main/Media/sendPhoto.gif" width="320">" width="640">
 </p>
 
 #### Contact with me
