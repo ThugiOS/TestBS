@@ -16,7 +16,7 @@
 - Нажатие на любой элемент списка открывает камеру
 - Когда снимок сделан - отправляется POST-запрос на сервер с идентификатором
 нажатого элемента, ФИО разработчика и фото с камеры
-    <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/result.png" width="320">
+    <img src="https://github.com/ThugiOS/TestBS/blob/main/Media/result.png" width="480">
 
 ---
 <p align="center">
