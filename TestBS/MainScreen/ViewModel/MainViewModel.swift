@@ -45,31 +45,23 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func getPhotos(for page: Int) async {
-        // Проверяем, активна ли уже пагинация, чтобы избежать дублирования запросов
         guard !isPagination else { return }
         
-        // Проверяем, не достигнут ли максимальный номер страницы
         guard maxPages == nil || page < maxPages ?? 0 else { return }
         
-        // Устанавливаем флаг пагинации
         isPagination = true
         
-        // Асинхронно получаем данные
         if let newPage: PhotoTypeDtoOut = await networkService.fetchData(path: path, page: String(page)) {
-            // Добавляем новые фотографии в массив
             photos.append(contentsOf: newPage.content)
             
-            // Обновляем таблицу на главном потоке
             DispatchQueue.main.async {
                 self.view?.reloadTableView()
             }
-            
-            // Обновляем информацию о максимальном количестве страниц и номере текущей страницы
+
             self.maxPages = newPage.totalPages
             self.page += 1
         }
         
-        // Снимаем флаг пагинации
         isPagination = false
     }
 

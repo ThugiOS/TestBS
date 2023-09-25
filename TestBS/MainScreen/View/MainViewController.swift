@@ -15,8 +15,12 @@ protocol MainViewControllerProtocol: AnyObject {
 
 final class MainViewController: UIViewController {
     
+// MARK: - Private Properties
+    
     private var viewModel: MainViewModelProtocol?
     private var photoId: Int?
+    
+// MARK: - Visual Components
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -26,6 +30,8 @@ final class MainViewController: UIViewController {
         return tableView
     }()
     
+// MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +40,8 @@ final class MainViewController: UIViewController {
         setupUI()
     }
 }
+
+// MARK: - Extensions
 
 private extension MainViewController {
     
@@ -66,12 +74,10 @@ private extension MainViewController {
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
-    // колличество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.photos.count ?? 0
     }
     
-    // установка картинок и текста
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableCell
         
@@ -92,14 +98,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
-    // вызываем камеру при нажатии на ячейку
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         photoId = viewModel?.photos[indexPath.row].id
         showImagePicker()
     }
     
-    // Сheck Pagination
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let controller = viewModel else { return }
         
@@ -107,7 +111,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let contentHeight = tableView.contentSize.height
         let frameHeight = scrollView.frame.size.height
         
-        // Проверяем, достигли ли конца таблицы и не в процессе уже пагинации
         if position > contentHeight + 50 - frameHeight && position > 0 && !controller.isPagination {
             Task {
                 await controller.getPhotos(for: controller.page)
@@ -120,7 +123,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // закрытие камеры
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
